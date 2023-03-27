@@ -9,12 +9,12 @@ import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int number = scanner.nextInt();
-        int summa =0;
-        for (int i = 0; i < 4; i++) {
-         summa+=number;
+        int summa = 0;
+        for (int i = 0; i < 5; i++) {
+            int number = scanner.nextInt();
+            summa += number;
         }
-        int otvet = summa/5;
+        int otvet = summa / 5;
         System.out.println(otvet);
     }
 }
