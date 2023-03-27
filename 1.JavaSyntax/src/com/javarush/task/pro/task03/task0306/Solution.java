@@ -11,19 +11,14 @@ public class Solution {
     private static final String TRIANGLE_NOT_EXISTS = "треугольник не существует";
 
     public static void main(String[] args) {
-       Scanner scan = new Scanner(System.in);
-       int number1 = scan.nextInt();
-       int number2 = scan.nextInt();
-       int number3 = scan.nextInt();
-       if(number1<number2+number3){
-           System.out.println(TRIANGLE_EXISTS);
-       } else if (number2<number1+number3) {
-           System.out.println(TRIANGLE_EXISTS);
-       } else if (number3<number1+number2) {
-           System.out.println(TRIANGLE_EXISTS);
-       }
-       else
-           System.out.println(TRIANGLE_NOT_EXISTS);
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        int c = scan.nextInt();
+        if ((a < b + c) && (b < a + c)&&(c < a + b)) {
+            System.out.println(TRIANGLE_EXISTS);
+        } else
+            System.out.println(TRIANGLE_NOT_EXISTS);
 
     }
 }
