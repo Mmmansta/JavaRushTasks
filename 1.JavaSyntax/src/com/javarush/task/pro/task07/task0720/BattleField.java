@@ -30,6 +30,9 @@ public class BattleField {
                 galavirXIII.defend(nimrodAttack);
                 System.out.println("GalavirXIII health = " + galavirXIII.health);
             }
+            else {
+                break;
+            }
         }
         while (isGalavirAlive(galavirXIII));
 
