@@ -18,39 +18,62 @@ public class Solution {
     public static int amigoLives = 9;
     public static int diabloLives = 9;
 
+
     public static void main(String[] args) {
-       diabloPosition = getRandomNumber(4);
-       findDiablo();
+        diabloPosition = getRandomNumber(4);
+        findDiablo();
+        battle();
+        System.out.println(isAmigoWin() ? winPhrase : loosePhrase);
+    }
+
+    public static boolean isAmigoWin() {
+        return diabloLives <= 0;
+    }
+
+    public static void battle() {
+        while (amigoLives > 0 && diabloLives > 0) {
+            if (amigoAttacks() == diabloDefends()) {
+                amigoLostLife();
+                System.out.println(diabloDefendPhrase);
+            } else {
+                diabloLostLife();
+                System.out.println(amigoAttackPhrase);
+            }
+        }
+    }
+
+    public static void amigoLostLife() {
+        amigoLives = amigoLives - 1;
+    }
+
+    public static void diabloLostLife() {
+        diabloLives = diabloLives - 3;
+    }
+
+    public static int amigoAttacks() {
+        return getRandomNumber(3);
+    }
+
+    public static int diabloDefends() {
+        return getRandomNumber(3);
+
+    }
+
+    public static void findDiablo() {
+        System.out.println(getFirstPositionPhrase);
+        Scanner scan = new Scanner(System.in);
+        while (true) {
+            int number = scan.nextInt();
+            if (number == diabloPosition) {
+                System.out.println(findDiabloPhrase);
+                break;
+            } else {
+                System.out.println(getPositionPhrase);
+            }
+        }
     }
 
     public static int getRandomNumber(int range) {
         return (int) (Math.random() * range) + 1;
     }
-    public static void findDiablo(){
-        System.out.println(getFirstPositionPhrase);
-        Scanner scan = new Scanner(System.in);
-        while(true){
-            int number = scan.nextInt();
-            if(number ==diabloPosition) {
-                System.out.println(findDiabloPhrase);
-                return;
-            }
-            else {
-                System.out.println(getPositionPhrase);
-            }
-        }
-    }
-    public static void amigoLostLife(){
-        amigoLives = amigoLives - 1;
-    }
-    public static void diabloLostLife(){
-        diabloLives = diabloLives-3;
-    }
-    public static int amigoAttacks(){
-        return getRandomNumber(3);
-    }
-    public static int diabloDefends(){
-        return getRandomNumber(3);
-    }
 }
-
